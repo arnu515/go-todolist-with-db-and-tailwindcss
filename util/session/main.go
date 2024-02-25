@@ -9,10 +9,13 @@ import (
 	"github.com/gorilla/sessions"
 )
 
+const SID = "sid"
+const USER_ID = "userId"
+
 var Store = sessions.NewCookieStore([]byte(util.Default(os.Getenv("SESSION_SECRET"), "secret-value")))
 
 func GetUserFromSession(session *sessions.Session) *db.User {
-	if userId, ok := session.Values["userId"].(string); !ok {
+	if userId, ok := session.Values[USER_ID].(string); !ok {
 		return nil
 	} else {
 		// fetch user from db

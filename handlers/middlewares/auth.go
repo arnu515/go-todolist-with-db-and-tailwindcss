@@ -9,7 +9,7 @@ import (
 func Auth(required bool, handler http.Handler) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Get the session
-		ssn, err := session.Store.Get(r, "sid")
+		ssn, err := session.Store.Get(r, session.SID)
 		if err != nil {
 			http.Redirect(w, r, "/auth", http.StatusFound)
 			return
