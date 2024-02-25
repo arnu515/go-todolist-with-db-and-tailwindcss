@@ -1,0 +1,11 @@
+{{ if . }}
+<div class="alert alert-error shadow-xl mb-8 flex items-center justify-between">
+  <p>{{.}}</p>
+  <button onclick="console.log(this.parentElement.remove())">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+  </button>
+</div>
+{{ end }}
