@@ -1,7 +1,12 @@
 package handlers
 
-import "net/http"
+import (
+	"net/http"
+	"todolist/handlers/middlewares"
+)
 
-func IndexHandler(w http.ResponseWriter, r *http.Request) {
+var IndexHandler = middlewares.Auth(true, http.HandlerFunc(indexHandler))
+
+func indexHandler(w http.ResponseWriter, r *http.Request) {
 	T.ExecuteTemplate(w, "index.html", nil)
 }
