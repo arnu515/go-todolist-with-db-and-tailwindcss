@@ -25,7 +25,9 @@ export default defineConfig({
         // ["not", ["dirname", "static"]],
         ["anyof", 
           ["match", "**/*.css", "wholename"],
-          ["match", "**/*.html", "wholename"]
+          ["match", "**/*.html", "wholename"],
+          ["match", "tailwind.config.js", "basename"],
+          ["match", "cmd/css.ts", "basename"]
         ]
       ],
       interruptible: true,
