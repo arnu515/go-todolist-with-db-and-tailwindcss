@@ -7,3 +7,5 @@ node_modules/
 .env.production.local
 .env.local
 .DS_Store
+
+static/global.css
