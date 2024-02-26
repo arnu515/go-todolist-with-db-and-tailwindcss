@@ -1,3 +1,20 @@
 {{ template "_layout-start.html" "Index page" }}
-<h1>Hello, world!</h1>
+<main class="p-4 md:py-6">
+  <h1 class="text-center text-4xl font-semibold my-4">Your todo lists</h1>
+  <p class="text-center text-xl my-4">Signed in as <code>{{ .User.Username }}</code>. <a href="/logout"
+      class="link link-error">Logout?</a></p>
+</main>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:mx-auto max-w-screen-lg m-4">
+  {{ $cmap := .CreatedAtMap }}
+  {{ range .Lists }}
+  <a role="link" href="/{{ .ID }}"
+    class="card w-96 bg-base-200 shadow-xl cursor-pointer hover:brightness-90 transition-all duration-300 border border-gray-700">
+    <div class="card-body">
+      <h2 class="card-title">{{ .Title }}</h2>
+      <p>Created: {{ index $cmap .ID }}</p>
+    </div>
+  </a>
+  {{ end }}
+</div>
 {{ template "_layout-end.html" }}
