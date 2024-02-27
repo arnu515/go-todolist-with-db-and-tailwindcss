@@ -5,7 +5,7 @@
       class="link link-error">Logout?</a></p>
 </main>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:mx-auto max-w-screen-lg m-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:mx-auto max-w-screen-lg m-4" hx-boost="true">
   {{ $cmap := .CreatedAtMap }}
   {{ range .Lists }}
   <a role="link" href="/list/{{ .ID }}"
