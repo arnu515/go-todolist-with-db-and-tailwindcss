@@ -1,0 +1,29 @@
+{{ template "_layout-start.html" "Index page" }}
+<main class="p-4 md:py-6">
+  <h1 class="text-center text-4xl font-semibold my-4">{{ .List.Title }}</h1>
+  <p class="text-center text-xl my-4">Signed in as <code>{{ .User.Username }}</code>. <a href="/logout"
+      class="link link-error">Logout?</a></p>
+</main>
+
+<div
+  class="my-6 flex flex-col p-4 bg-base-200 shadow-xl rounded-xl md:py-6 max-w-screen-md m-4 md:mx-auto border border-gray-700">
+  {{ range .Todos }}
+  <div class="flex items-center">
+    <span>{{ .Text }}</span>
+    <span>{{ .Completed }}</span>
+  </div>
+  {{ end }}
+  <form class="flex items-center gap-2">
+    <div class="join w-full">
+      <label class="input input-sm input-bordered flex items-center gap-2 w-full join-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <input type="text" class="grow" placeholder="Add a new item" name="text" aria-label="New item" />
+      </label>
+      <button class="btn join-item btn-sm btn-base-100 border-neutral border">Add</button>
+    </div>
+  </form>
+</div>
+{{ template "_layout-end.html" }}
